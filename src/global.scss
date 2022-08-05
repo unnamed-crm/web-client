@@ -1,0 +1,13 @@
+html {
+  color-scheme: dark;
+}
+
+body {
+  height: 100vh;
+}
+
+#__next {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
