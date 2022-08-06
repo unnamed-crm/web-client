@@ -1,39 +1,44 @@
 export type Email = string;
 export type Token = string;
 
-export interface GetVerificationCodePayload {
+export type GetVerificationCodePayload = {
   email: Email;
-}
+};
 
-interface AuthPayload {
+type AuthPayload = {
   email: Email;
   password: string;
-}
+};
 
-export interface RegisterPayload extends AuthPayload {
+export type RegisterPayload = AuthPayload & {
   verificationCode: number;
-}
+};
 
-export interface User {
+export type UserDto = {
   id: string;
-  created_at: Date;
+  created_at: string;
   email: Email;
   avatar_url: string;
-}
+};
 
-interface AuthResponse {
+export type User = Pick<UserDto, 'id' | 'email'> & {
+  createdAt: Date;
+  avatarUrl: string;
+};
+
+type AuthResponse = {
   token: Token;
-  user: User;
-}
+  user: UserDto;
+};
 
-export interface RegisterResponse extends AuthResponse {}
+export type RegisterResponse = AuthResponse;
 
-export interface LoginPayload extends AuthPayload {}
+export type LoginPayload = AuthPayload;
 
-export interface LoginResponse extends AuthResponse {}
+export type LoginResponse = AuthResponse;
 
-export interface AuthState {
-  isLoginned: boolean;
+export type AuthState = {
+  isLogin: boolean;
   token: Token;
   user: User | null;
-}
+};

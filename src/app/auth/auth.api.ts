@@ -8,7 +8,7 @@ import {
   LoginPayload,
   LoginResponse,
 } from './auth.types';
-import { HTTP } from '../constants';
+import { HTTP_METHODS as HTTP } from '../constants';
 
 export const authApi = createApi({
   baseQuery: fetchBaseQuery({
