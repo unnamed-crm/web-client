@@ -1,5 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  './src/**/*': ['eslint --fix --quiet', 'yarn prettier --write']
+  './src/**/*' : (filenames) => [
+    `next lint --fix --file ${filenames
+      .map((file) => path.relative(process.cwd(), file))
+      .join(' --file ')}`,
+    `yarn prettier --write ${filenames.join(' ')}`,
+  ],
 };
