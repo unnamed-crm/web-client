@@ -14,22 +14,22 @@ export type RegisterPayload = AuthPayload & {
   verificationCode: number;
 };
 
-export type UserDto= {
+export type UserDto = {
   id: string;
   created_at: string;
   email: Email;
   avatar_url: string;
-}
+};
 
-export type User = Pick<UserDto,'id' | 'email'> & {
-  createdAt: Date,
+export type User = Pick<UserDto, 'id' | 'email'> & {
+  createdAt: Date;
   avatarUrl: string;
-}
+};
 
-type AuthResponse =  {
+type AuthResponse = {
   token: Token;
   user: UserDto;
-}
+};
 
 export type RegisterResponse = AuthResponse;
 
@@ -37,8 +37,8 @@ export type LoginPayload = AuthPayload;
 
 export type LoginResponse = AuthResponse;
 
-export type AuthState =  {
+export type AuthState = {
   isLogin: boolean;
   token: Token;
   user: User | null;
-}
+};
