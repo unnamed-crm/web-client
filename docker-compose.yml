@@ -4,12 +4,15 @@ services:
   client:
     container_name: ucrm-client
     build: ./
+    environment:
+      - PORT=3000
+    ports:
+      - 3000:3000
     networks:
-      - private
-      # ucrm:
-      #   ipv4_address: 172.4.4.12
-      #   aliases:
-      #     - ucrm.client.loc
+      ucrm-client:
+        ipv4_address: ${NETWORK_PREFIX:-173.4}.4.12
+        aliases:
+          - ucrm.client.loc
 
   nginx:
     container_name: ucrm-nginx
@@ -19,16 +22,14 @@ services:
     ports:
       - 8080:80
     networks:
-      - private
-      # ucrm:
-      #   ipv4_address: 172.4.4.14
-      #   aliases:
-      #     - ucrm.client.loc:3000
+      ucrm-client:
+        ipv4_address: ${NETWORK_PREFIX:-173.4}.4.14
+        aliases:
+          - ucrm.nginx.loc
 
 networks:
-  private:
-#   ucrm:
-#     name: ucrm
-#     ipam:
-#       config:
-#         - subnet: 172.4.4.0/24
+  ucrm-client:
+    name: ucrm-client
+    ipam:
+      config:
+        - subnet: ${NETWORK_PREFIX:-173.4}.4.0/24
