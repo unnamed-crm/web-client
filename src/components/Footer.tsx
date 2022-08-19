@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import { Box, Link, Typography } from '@mui/material';
 
-export default function Footer() {
+export const Footer: FC = () => {
   return (
     <Box
       sx={{
@@ -17,4 +18,4 @@ export default function Footer() {
       </Link>
     </Box>
   );
-}
+};

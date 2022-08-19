@@ -33,23 +33,20 @@ export const useTimer = ({ expiredTime }: UseTimerProps) => {
   const timerRef = useRef<any>();
   let targetTime = getTargetTime(expiredTime);
   const [remainingTime, setRemainingTime] = useState<number>(() => getRemainingTime(targetTime));
-  const [isStart, setIsStart] = useState<boolean>(false);
   const [isOver, setIsOver] = useState<boolean>(false);
 
   const timer = () => {
     const value = getRemainingTime(targetTime);
     setRemainingTime(value);
     if (value <= 0) {
-      setIsStart(false);
       setIsOver(true);
       clearInterval(timerRef.current);
     }
   };
 
   const start = () => {
-    if (!isStart && !timerRef.current) {
+    if (!isOver && !timerRef.current) {
       timerRef.current = setInterval(timer, 1000);
-      setIsStart(true);
       setIsOver(false);
     }
   };
@@ -60,7 +57,6 @@ export const useTimer = ({ expiredTime }: UseTimerProps) => {
     targetTime = newTargetTime;
     setRemainingTime(getRemainingTime(newTargetTime));
     timerRef.current = setInterval(timer, 1000);
-    setIsStart(true);
     setIsOver(false);
   };
 

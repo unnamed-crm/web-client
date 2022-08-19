@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import NextLink from 'next/link';
 import { AppBar, Toolbar, Typography } from '@mui/material';
-import Nav from './Nav';
+import { Nav } from './Nav';
 
-export default function Header() {
+export const Header: FC = () => {
   return (
     <AppBar position="static">
       <Toolbar>
@@ -19,4 +20,4 @@ export default function Header() {
       </Toolbar>
     </AppBar>
   );
-}
+};

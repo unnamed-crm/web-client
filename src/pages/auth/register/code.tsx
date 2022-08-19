@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Container, Stack } from '@mui/material';
-import { Code as CodeComponent } from '@/components/Code';
+import { CodeInput } from '@/components/Code';
 import { LoadingButton } from '@/components/UI/LoadingButton';
 import { registerCodeSchema, RegisterCodeData } from '@/schemas/auth/register.schema';
 import { useRegisterContext } from '@/contexts/auth/Register.context';
@@ -60,7 +60,7 @@ const Code: NextPage = () => {
             name="code"
             control={control}
             render={({ field: { onChange, value } }) => (
-              <CodeComponent
+              <CodeInput
                 required
                 variant="outlined"
                 label="Verification Code"

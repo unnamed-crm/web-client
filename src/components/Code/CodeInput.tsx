@@ -3,11 +3,11 @@ import { Box, TextField, Typography, TextFieldProps } from '@mui/material';
 import { useTimer } from '@/hooks/useTimer';
 import { LoadingButton } from '../UI/LoadingButton';
 
-interface CodeProps {
+interface CodeInputProps {
   onTimerRestart?: () => void;
 }
 
-export const Code: FC<PropsWithChildren<CodeProps & TextFieldProps>> = ({
+export const CodeInput: FC<PropsWithChildren<CodeInputProps & TextFieldProps>> = ({
   children,
   onTimerRestart = () => undefined,
   ...rest
@@ -25,7 +25,7 @@ export const Code: FC<PropsWithChildren<CodeProps & TextFieldProps>> = ({
 
   return (
     <>
-      <TextField {...(rest as TextFieldProps)} />
+      <TextField {...rest} />
       {!isOver && (
         <Box>
           <Typography component="span">

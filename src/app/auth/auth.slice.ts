@@ -12,14 +12,19 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout: () => {
-      window.localStorage.removeItem('token');
+      localStorage.removeItem('token');
       return initialState;
+    },
+    takeTokenFromLocalStorage: (state) => {
+      if (!state.token) {
+        state.token = localStorage.getItem('token') || '';
+      }
     },
   },
   extraReducers: (builder) => {
     builder
       .addMatcher(register.matchFulfilled, (state, { payload: { token, user } }) => {
-        window.localStorage.setItem('token', token);
+        localStorage.setItem('token', token);
 
         state.token = token;
         state.user = {
@@ -30,7 +35,7 @@ const authSlice = createSlice({
         };
       })
       .addMatcher(login.matchFulfilled, (state, { payload: { token, user } }) => {
-        window.localStorage.setItem('token', token);
+        localStorage.setItem('token', token);
 
         state.token = token;
         state.user = {
