@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { Box } from '@mui/material';

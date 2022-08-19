@@ -7,17 +7,12 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/auth/register/code',
+        source: '/auth/register/:path*',
         destination: '/auth/register',
         permanent: true,
       },
       {
-        source: '/auth/recoveryPassword/code',
-        destination: '/auth/recoveryPassword',
-        permanent: true,
-      },
-      {
-        source: '/auth/recoveryPassword/new',
+        source: '/auth/recoveryPassword/:path*',
         destination: '/auth/recoveryPassword',
         permanent: true,
       },

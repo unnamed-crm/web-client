@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -6,7 +6,7 @@ import { Container, Stack, TextField, Typography } from '@mui/material';
 import { LoadingButton } from '@/components/UI/LoadingButton';
 import {
   recoveryPasswordEmailSchema,
-  RecoveryPasswordEmailData,
+  type RecoveryPasswordEmailData,
 } from '@/schemas/auth/recoveryPassword.schema';
 import { useRecoveryPasswordContext } from '@/contexts/auth/RecoveryPassword.context';
 import { useGetRecoveryCodeMutation } from '@/app/auth/auth.api';

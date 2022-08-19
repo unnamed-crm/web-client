@@ -3,7 +3,7 @@ import type { AppProps as NextAppProps } from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider, EmotionCache } from '@emotion/react';
+import { CacheProvider, type EmotionCache } from '@emotion/react';
 import { emotionCache as clientEmotionCache } from '@/utils/emotionCache';
 import { Layout } from '@/components/Layout';
 import { theme } from '@/utils/theme';

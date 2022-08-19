@@ -1,13 +1,6 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  FC,
-  PropsWithChildren,
-  Dispatch,
-  SetStateAction,
-} from 'react';
-import { FullRecoveryPasswordData } from '@/schemas/auth/recoveryPassword.schema';
+import { createContext, useContext, useState } from 'react';
+import type { FC, PropsWithChildren, Dispatch, SetStateAction } from 'react';
+import type { FullRecoveryPasswordData } from '@/schemas/auth/recoveryPassword.schema';
 
 const initialData: FullRecoveryPasswordData = {
   email: '',

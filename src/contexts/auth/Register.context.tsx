@@ -1,13 +1,6 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  FC,
-  PropsWithChildren,
-  Dispatch,
-  SetStateAction,
-} from 'react';
-import { FullRegisterData } from '@/schemas/auth/register.schema';
+import { createContext, useContext, useState } from 'react';
+import type { FC, PropsWithChildren, Dispatch, SetStateAction } from 'react';
+import type { FullRegisterData } from '@/schemas/auth/register.schema';
 
 const initialData: FullRegisterData = {
   email: '',

@@ -1,5 +1,6 @@
-import { FC, PropsWithChildren } from 'react';
-import { Stack, Button, CircularProgress, SxProps, Box, ButtonProps } from '@mui/material';
+import type { FC, PropsWithChildren } from 'react';
+import { Stack, Button, CircularProgress, Box } from '@mui/material';
+import type { SxProps, ButtonProps } from '@mui/material';
 
 interface LoadingButtonProps {
   children: React.ReactNode;

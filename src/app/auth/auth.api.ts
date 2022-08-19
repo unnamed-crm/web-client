@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { HYDRATE } from 'next-redux-wrapper';
-import {
+import type {
   GetVerifyCodePayload,
   RegisterPayload,
   RegisterResponse,

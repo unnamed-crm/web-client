@@ -1,10 +1,10 @@
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Container, Stack, Button, TextField, Typography } from '@mui/material';
 import { LoadingButton } from '@/components/UI/LoadingButton';
-import { registerSchema, RegisterData } from '@/schemas/auth/register.schema';
+import { registerSchema, type RegisterData } from '@/schemas/auth/register.schema';
 import { useRegisterContext } from '@/contexts/auth/Register.context';
 import { useGetVerifyCodeMutation } from '@/app/auth/auth.api';
 

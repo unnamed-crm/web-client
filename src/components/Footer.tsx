@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { Box, Link, Typography } from '@mui/material';
 
 export const Footer: FC = () => {

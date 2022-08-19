@@ -1,11 +1,11 @@
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Container, Stack } from '@mui/material';
 import { CodeInput } from '@/components/Code';
 import { LoadingButton } from '@/components/UI/LoadingButton';
-import { registerCodeSchema, RegisterCodeData } from '@/schemas/auth/register.schema';
+import { registerCodeSchema, type RegisterCodeData } from '@/schemas/auth/register.schema';
 import { useRegisterContext } from '@/contexts/auth/Register.context';
 import { useRegisterMutation, useGetVerifyCodeMutation } from '@/app/auth/auth.api';
 

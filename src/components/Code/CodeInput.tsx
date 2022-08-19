@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren, useEffect } from 'react';
-import { Box, TextField, Typography, TextFieldProps } from '@mui/material';
+import { Box, TextField, Typography } from '@mui/material';
+import type { TextFieldProps } from '@mui/material';
 import { useTimer } from '@/hooks/useTimer';
 import { LoadingButton } from '../UI/LoadingButton';
 

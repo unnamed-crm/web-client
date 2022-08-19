@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import NextLink from 'next/link';
 import { Controller, useForm } from 'react-hook-form';
@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Container, Stack, TextField, Typography, Link } from '@mui/material';
 import { LoadingButton } from '@/components/UI/LoadingButton';
 import { useLoginMutation } from '@/app/auth/auth.api';
-import { loginSchema, LoginData } from '@/schemas/auth/login.schema';
+import { loginSchema, type LoginData } from '@/schemas/auth/login.schema';
 
 const Login: NextPage = () => {
   const router = useRouter();
