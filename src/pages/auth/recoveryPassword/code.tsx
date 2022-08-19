@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Container, Stack, Button } from '@mui/material';
-import { CodeInput } from '@/components/Code';
+import { CodeInput } from '@/components/CodeInput';
 import {
   recoveryPasswordCodeSchema,
   type RecoveryPasswordCodeData,
