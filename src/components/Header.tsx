@@ -1,19 +1,23 @@
-import { AppBar, Toolbar, Typography, Button, IconButton } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import type { FC } from 'react';
+import NextLink from 'next/link';
+import { AppBar, Toolbar, Typography } from '@mui/material';
+import { Nav } from './Nav';
 
-export default function Header() {
+export const Header: FC = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton sx={{ mr: 2 }} size="large" edge="start" color="inherit" aria-label="menu">
-          <MenuIcon />
-        </IconButton>
-        <Typography sx={{ flexGrow: 1 }} variant="h6" component="div">
-          UCRM
-        </Typography>
-        <Button color="inherit">Login</Button>
-        <Button color="inherit">Register</Button>
+        <NextLink href="/">
+          <Typography
+            sx={{ marginRight: 'auto', ':hover': { cursor: 'pointer' } }}
+            variant="h6"
+            component="a"
+          >
+            UCRM
+          </Typography>
+        </NextLink>
+        <Nav />
       </Toolbar>
     </AppBar>
   );
-}
+};

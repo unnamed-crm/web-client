@@ -1,12 +1,13 @@
-import Header from './Header';
-import Footer from './Footer';
+import type { FC, PropsWithChildren } from 'react';
+import { Header } from './Header';
+import { Footer } from './Footer';
 import { Box } from '@mui/material';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export const Layout: FC<PropsWithChildren<LayoutProps>> = ({ children }) => {
   return (
     <>
       <Header />
@@ -16,4 +17,4 @@ export default function Layout({ children }: LayoutProps) {
       <Footer />
     </>
   );
-}
+};

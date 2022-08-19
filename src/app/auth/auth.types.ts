@@ -1,22 +1,26 @@
 export type Email = string;
 export type Token = string;
 
-export type GetVerificationCodePayload = {
+type CodePayload = {
   email: Email;
 };
+
+export type GetVerifyCodePayload = CodePayload;
 
 type AuthPayload = {
   email: Email;
   password: string;
 };
 
-export type RegisterPayload = AuthPayload & {
-  verificationCode: number;
+type CodeDto = {
+  code: number;
 };
+
+export type RegisterPayload = AuthPayload & CodeDto;
 
 export type UserDto = {
   id: string;
-  created_at: string;
+  created_at: Date;
   email: Email;
   avatar_url: string;
 };
@@ -38,7 +42,10 @@ export type LoginPayload = AuthPayload;
 export type LoginResponse = AuthResponse;
 
 export type AuthState = {
-  isLogin: boolean;
   token: Token;
   user: User | null;
 };
+
+export type GetRecoveryCodePayload = CodePayload;
+
+export type RecoveryPasswordPayload = AuthPayload & CodeDto;
