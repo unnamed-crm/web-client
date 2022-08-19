@@ -1,25 +1,25 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { HYDRATE } from 'next-redux-wrapper';
-import { HOST_URL } from '../constants';
 import {
-  GetVerificationCodePayload,
+  GetVerifyCodePayload,
   RegisterPayload,
   RegisterResponse,
   LoginPayload,
   LoginResponse,
+  GetRecoveryCodePayload,
+  RecoveryPasswordPayload,
 } from './auth.types';
-import { HTTP_METHODS as HTTP } from '../constants';
+import { HTTP_METHODS as HTTP, AUTH_API_URL } from '../constants';
 
 export const authApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: HOST_URL + '/users',
+    baseUrl: AUTH_API_URL,
     prepareHeaders: (headers) => {
       const token = window.localStorage.getItem('token') || '';
       headers.set('Authorization', token);
-
       return headers;
     },
-    credentials: 'include',
+    credentials: 'same-origin',
   }),
   reducerPath: 'api/auth',
   extractRehydrationInfo(action, { reducerPath }) {
@@ -28,23 +28,30 @@ export const authApi = createApi({
     }
   },
   endpoints: (builder) => ({
-    getVerificationCode: builder.mutation<GetVerificationCodePayload, void>({
-      query: (data) => ({ url: '/verificationCode', method: HTTP.POST, body: data }),
+    getVerifyCode: builder.mutation<void, GetVerifyCodePayload>({
+      query: (data) => ({ url: '/sendVerifyCode', method: HTTP.POST, body: data }),
     }),
-    register: builder.mutation<RegisterPayload, RegisterResponse>({
+    register: builder.mutation<RegisterResponse, RegisterPayload>({
       query: (data) => ({ url: '/signUp', method: HTTP.POST, body: data }),
     }),
-    login: builder.mutation<LoginPayload, LoginResponse>({
+    login: builder.mutation<LoginResponse, LoginPayload>({
       query: (data) => ({ url: '/signIn', method: HTTP.POST, body: data }),
+    }),
+    getRecoveryCode: builder.mutation<void, GetRecoveryCodePayload>({
+      query: (data) => ({ url: '/sendRecoveryCode', method: HTTP.POST, body: data }),
+    }),
+    recoveryPassword: builder.mutation<void, RecoveryPasswordPayload>({
+      query: (data) => ({ url: '/recoveryPassword', method: HTTP.POST, body: data }),
     }),
   }),
 });
 
 export const {
-  useGetVerificationCodeMutation,
+  useGetVerifyCodeMutation,
   useRegisterMutation,
   useLoginMutation,
+  useGetRecoveryCodeMutation,
+  useRecoveryPasswordMutation,
+  endpoints: { getVerifyCode, register, login, getRecoveryCode, recoveryPassword },
   util: { getRunningOperationPromises },
 } = authApi;
-
-export const { getVerificationCode, register, login } = authApi.endpoints;
